@@ -157,65 +157,38 @@ function initProjectsGrid() {
     const projects = [
         {
             title: 'Digital Signage IoT Platform',
-            description: 'Enterprise digital signage solution deployed across hundreds of Raspberry Pi devices. Reduced deployment errors by 90% through automated workflows with PM2 process control and AWS Lambda + SQS logging. Improved system performance and content delivery speed.',
-            image: '📺',
+            description: 'Led development and deployment of digital signage solutions across hundreds of Raspberry Pi devices. Designed automated deployment workflows with PM2 process control, AWS Lambda + SQS logging, and modernized legacy Node.js and Angular stacks.',
             technologies: ['Raspberry Pi', 'Node.js', 'AWS Lambda', 'PM2', 'IoT Fleet Management'],
-            impact: '100+ devices managed',
-            status: 'Production (NTV360)',
+            scope: 'Enterprise Scale',
+            result: '90% Error Reduction',
+            company: 'NTV360',
             category: ['enterprise', 'iot']
         },
         {
             title: 'Automotive Dealer Platform',
-            description: 'Enhanced customer and dealer management platform for automotive industry. Improved dashboard usability and responsiveness, resulting in better workflow efficiency and enhanced user satisfaction for dealership clients.',
-            image: '🚗',
-            technologies: ['Angular', 'TypeScript', 'UI/UX Design', 'Responsive Design'],
-            impact: 'Enhanced dealership workflows',
-            status: 'Production (Click Dealer Ltd.)',
+            description: 'Implemented new features for customer and dealer platforms using Angular. Enhanced UI/UX for dashboards, optimizing workflows for dealership clients in an agile development environment.',
+            technologies: ['Angular', 'TypeScript', 'UI/UX Design', 'Agile Development'],
+            scope: 'Frontend Focus',
+            result: 'Enhanced UX',
+            company: 'Click Dealer Ltd.',
             category: ['enterprise', 'fullstack']
         },
         {
             title: 'Enterprise Database Performance Optimization',
-            description: 'Comprehensive database performance tuning across MySQL, PostgreSQL, and IBM DB2 systems for SMB clients. Implemented query refinement and schema redesign, achieving 60-80% reduction in query execution times.',
-            image: '🗄️',
+            description: 'Optimized database performance across MySQL, PostgreSQL, and IBM DB2 systems by refining queries and schema designs. Served SMB clients across multiple industries with significant performance improvements.',
             technologies: ['MySQL', 'PostgreSQL', 'IBM DB2', 'Query Optimization', 'Schema Design'],
-            impact: '60-80% query time reduction',
-            status: 'Multiple Production Systems',
+            scope: 'Multi-Database',
+            result: '60-80% Faster',
+            company: 'Webforest Digital',
             category: ['enterprise']
         },
         {
             title: 'Educational Grading System',
-            description: 'Digital examination and grading system for nursing education at Philippine Integrated Learning Review Center. Automated test scoring workflow, eliminating manual processing and improving accuracy for hundreds of students.',
-            image: '📋',
+            description: 'Designed and developed an online grading system for nursing examinations, streamlining exam evaluation and reducing manual processing time while improving accuracy and efficiency of test scoring.',
             technologies: ['Web Development', 'Database Design', 'Educational Technology', 'Automation'],
-            impact: 'Automated grading for 500+ students',
-            status: 'Production (Educational Institution)',
-            category: ['fullstack']
-        },
-        {
-            title: 'Multi-Industry SMB Applications',
-            description: 'Portfolio of full-stack business applications serving clients across various industries. Built scalable Laravel backends with Angular frontends, featuring custom business logic, API integrations, and comprehensive admin panels.',
-            image: '🏢',
-            technologies: ['Laravel', 'Angular', 'RESTful APIs', 'Full-Stack Development'],
-            impact: '20+ SMB clients served',
-            status: 'Multiple Production Deployments',
-            category: ['enterprise', 'fullstack']
-        },
-        {
-            title: 'Modern Developer Portfolio',
-            description: 'Responsive portfolio website built with vanilla JavaScript, modern CSS, and professional design principles. Features smooth animations, mobile-first design, and optimized performance without heavy frameworks.',
-            image: '🌐',
-            technologies: ['JavaScript', 'CSS3', 'Responsive Design', 'Performance Optimization'],
-            impact: 'Open source template',
-            status: 'GitHub Pages Deployment',
-            category: ['fullstack']
-        },
-        {
-            title: 'Task Scheduler Application',
-            description: 'Full-stack scheduling application with NestJS backend and Angular frontend. Features real-time updates, comprehensive task management, and modern architecture patterns for scalable development.',
-            image: '📅',
-            technologies: ['NestJS', 'Angular', 'TypeScript', 'Material UI'],
-            impact: 'Personal productivity tool',
-            status: 'Active Development',
+            scope: 'Full Development',
+            result: 'Process Automation',
+            company: 'Philippine Integrated Learning Review Center',
             category: ['fullstack']
         }
     ];
@@ -233,10 +206,8 @@ function createProjectCard(project) {
     card.className = 'project-card';
     card.setAttribute('data-category', project.category.join(' '));
     
-    // Extract company name from status for cleaner display
-    const company = project.status.includes('(') 
-        ? project.status.match(/\(([^)]+)\)/)?.[1] || ''
-        : project.status;
+    // Use company name directly from project data
+    const company = project.company;
     
     // Determine primary category for badge
     const primaryCategory = project.category[0];
@@ -251,7 +222,7 @@ function createProjectCard(project) {
             <div class="project-type-indicator"></div>
             <div class="project-category-badge">${categoryLabels[primaryCategory] || primaryCategory.toUpperCase()}</div>
             <h3 class="project-title">${project.title}</h3>
-            ${company !== project.status ? `<div class="project-company">${company}</div>` : ''}
+            <div class="project-company">${company}</div>
         </div>
         <div class="project-content">
             <p class="project-description">${project.description}</p>
@@ -263,21 +234,16 @@ function createProjectCard(project) {
             <div class="project-metrics">
                 <div class="metric-item">
                     <span class="metric-value">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-expand-arrows-alt"></i>
                     </span>
-                    <div class="metric-label">${project.impact}</div>
+                    <div class="metric-label">${project.scope}</div>
                 </div>
                 <div class="metric-item">
                     <span class="metric-value">
                         <i class="fas fa-check-circle"></i>
                     </span>
-                    <div class="metric-label">Production</div>
+                    <div class="metric-label">${project.result}</div>
                 </div>
-            </div>
-            
-            <div class="project-status">
-                <i class="fas fa-rocket"></i>
-                <span>${project.status}</span>
             </div>
         </div>
     `;

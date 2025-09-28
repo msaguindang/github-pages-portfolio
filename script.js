@@ -59,7 +59,7 @@ function initNavbar() {
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     let current = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -82,11 +82,11 @@ function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const texts = [
         'Full-Stack Software Engineer',
-        'DevOps Specialist', 
+        'DevOps Specialist',
         'IoT Solutions Architect',
         'Database Optimization Expert'
     ];
-    
+
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -94,7 +94,7 @@ function initTypingAnimation() {
 
     function type() {
         const currentText = texts[textIndex];
-        
+
         if (isDeleting) {
             typingElement.textContent = currentText.substring(0, charIndex - 1);
             charIndex--;
@@ -149,10 +149,10 @@ function initScrollAnimations() {
 // Projects grid population  
 function initProjectsGrid() {
     const projectsGrid = document.getElementById('projects-grid');
-    
+
     // Initialize project filtering
     initProjectFiltering();
-    
+
     // Featured projects based on resume experience
     const projects = [
         {
@@ -162,6 +162,7 @@ function initProjectsGrid() {
             scope: 'Enterprise Scale',
             result: '90% Error Reduction',
             company: 'NTV360',
+            companyUrl: 'https://ntv360.com/',
             category: ['enterprise', 'iot']
         },
         {
@@ -171,6 +172,7 @@ function initProjectsGrid() {
             scope: 'Frontend Focus',
             result: 'Enhanced UX',
             company: 'Click Dealer Ltd.',
+            companyUrl: 'https://www.clickdealer.co.uk/',
             category: ['enterprise', 'fullstack']
         },
         {
@@ -180,6 +182,7 @@ function initProjectsGrid() {
             scope: 'Multi-Database',
             result: '60-80% Faster',
             company: 'Webforest Digital',
+            companyUrl: 'https://webforest.solutions/',
             category: ['enterprise']
         },
         {
@@ -189,6 +192,7 @@ function initProjectsGrid() {
             scope: 'Full Development',
             result: 'Process Automation',
             company: 'Philippine Integrated Learning Review Center',
+            companyUrl: null,
             category: ['fullstack']
         }
     ];
@@ -205,10 +209,10 @@ function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card';
     card.setAttribute('data-category', project.category.join(' '));
-    
+
     // Use company name directly from project data
     const company = project.company;
-    
+
     // Determine primary category for badge
     const primaryCategory = project.category[0];
     const categoryLabels = {
@@ -216,13 +220,16 @@ function createProjectCard(project) {
         'iot': 'IoT',
         'fullstack': 'FULL-STACK'
     };
-    
+
     card.innerHTML = `
         <div class="project-header">
             <div class="project-type-indicator"></div>
             <div class="project-category-badge">${categoryLabels[primaryCategory] || primaryCategory.toUpperCase()}</div>
             <h3 class="project-title">${project.title}</h3>
-            <div class="project-company">${company}</div>
+            ${project.companyUrl ? 
+                `<a href="${project.companyUrl}" target="_blank" class="project-company project-company-link">${company}</a>` : 
+                `<div class="project-company">${company}</div>`
+            }
         </div>
         <div class="project-content">
             <p class="project-description">${project.description}</p>
@@ -247,7 +254,7 @@ function createProjectCard(project) {
             </div>
         </div>
     `;
-    
+
     return card;
 }
 
@@ -255,15 +262,15 @@ function createProjectCard(project) {
 function initProjectFiltering() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
-    
+
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const filter = button.getAttribute('data-filter');
-            
+
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            
+
             // Filter projects
             filterProjects(filter);
         });
@@ -273,13 +280,13 @@ function initProjectFiltering() {
 // Filter projects based on category
 function filterProjects(filter) {
     const projectCards = document.querySelectorAll('.project-card');
-    
+
     projectCards.forEach(card => {
         if (filter === 'all') {
             card.style.display = 'block';
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            
+
             setTimeout(() => {
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
@@ -290,7 +297,7 @@ function filterProjects(filter) {
                 card.style.display = 'block';
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
-                
+
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
@@ -298,7 +305,7 @@ function filterProjects(filter) {
             } else {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(-20px)';
-                
+
                 setTimeout(() => {
                     card.style.display = 'none';
                 }, 300);
@@ -310,32 +317,32 @@ function filterProjects(filter) {
 // Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
-    
+
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
-        
+
         // Basic validation
         if (!name || !email || !subject || !message) {
             showNotification('Please fill in all fields', 'error');
             return;
         }
-        
+
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
-        
+
         // Simulate form submission (replace with actual form handling)
         showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
         contactForm.reset();
-        
+
         // Here you would typically send the form data to your server
         // Example: fetch('/contact', { method: 'POST', body: formData })
     });
@@ -358,7 +365,7 @@ function showNotification(message, type) {
             <span>${message}</span>
         </div>
     `;
-    
+
     // Add styles for notification
     notification.style.cssText = `
         position: fixed;
@@ -373,20 +380,20 @@ function showNotification(message, type) {
         transform: translateX(400px);
         transition: transform 0.3s ease;
     `;
-    
+
     notification.querySelector('.notification-content').style.cssText = `
         display: flex;
         align-items: center;
         gap: 12px;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-    
+
     // Auto remove after 5 seconds
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
@@ -401,7 +408,7 @@ function showNotification(message, type) {
 // Smooth scrolling for navigation links
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -433,7 +440,7 @@ window.addEventListener('scroll', throttle(() => {
     const hero = document.querySelector('.hero');
     const scrolled = window.pageYOffset;
     const rate = scrolled * -0.5;
-    
+
     if (hero) {
         hero.style.transform = `translateY(${rate}px)`;
     }
@@ -442,7 +449,7 @@ window.addEventListener('scroll', throttle(() => {
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Add subtle entrance animations
     const elements = document.querySelectorAll('.hero-text > *');
     elements.forEach((el, index) => {

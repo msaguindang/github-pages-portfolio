@@ -238,9 +238,18 @@ function createProjectCard(project) {
         ? project.status.match(/\(([^)]+)\)/)?.[1] || ''
         : project.status;
     
+    // Determine primary category for badge
+    const primaryCategory = project.category[0];
+    const categoryLabels = {
+        'enterprise': 'ENTERPRISE',
+        'iot': 'IoT',
+        'fullstack': 'FULL-STACK'
+    };
+    
     card.innerHTML = `
         <div class="project-header">
-            <span class="project-icon">${project.image}</span>
+            <div class="project-type-indicator"></div>
+            <div class="project-category-badge">${categoryLabels[primaryCategory] || primaryCategory.toUpperCase()}</div>
             <h3 class="project-title">${project.title}</h3>
             ${company !== project.status ? `<div class="project-company">${company}</div>` : ''}
         </div>

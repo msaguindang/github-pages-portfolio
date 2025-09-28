@@ -146,9 +146,12 @@ function initScrollAnimations() {
     });
 }
 
-// Projects grid population
+// Projects grid population  
 function initProjectsGrid() {
     const projectsGrid = document.getElementById('projects-grid');
+    
+    // Initialize project filtering
+    initProjectFiltering();
     
     // Featured projects based on resume experience
     const projects = [
@@ -158,7 +161,8 @@ function initProjectsGrid() {
             image: '📺',
             technologies: ['Raspberry Pi', 'Node.js', 'AWS Lambda', 'PM2', 'IoT Fleet Management'],
             impact: '100+ devices managed',
-            status: 'Production (NTV360)'
+            status: 'Production (NTV360)',
+            category: ['enterprise', 'iot']
         },
         {
             title: 'Automotive Dealer Platform',
@@ -166,7 +170,8 @@ function initProjectsGrid() {
             image: '🚗',
             technologies: ['Angular', 'TypeScript', 'UI/UX Design', 'Responsive Design'],
             impact: 'Enhanced dealership workflows',
-            status: 'Production (Click Dealer Ltd.)'
+            status: 'Production (Click Dealer Ltd.)',
+            category: ['enterprise', 'fullstack']
         },
         {
             title: 'Enterprise Database Performance Optimization',
@@ -174,7 +179,8 @@ function initProjectsGrid() {
             image: '🗄️',
             technologies: ['MySQL', 'PostgreSQL', 'IBM DB2', 'Query Optimization', 'Schema Design'],
             impact: '60-80% query time reduction',
-            status: 'Multiple Production Systems'
+            status: 'Multiple Production Systems',
+            category: ['enterprise']
         },
         {
             title: 'Educational Grading System',
@@ -182,7 +188,8 @@ function initProjectsGrid() {
             image: '📋',
             technologies: ['Web Development', 'Database Design', 'Educational Technology', 'Automation'],
             impact: 'Automated grading for 500+ students',
-            status: 'Production (Educational Institution)'
+            status: 'Production (Educational Institution)',
+            category: ['fullstack']
         },
         {
             title: 'Multi-Industry SMB Applications',
@@ -190,7 +197,8 @@ function initProjectsGrid() {
             image: '🏢',
             technologies: ['Laravel', 'Angular', 'RESTful APIs', 'Full-Stack Development'],
             impact: '20+ SMB clients served',
-            status: 'Multiple Production Deployments'
+            status: 'Multiple Production Deployments',
+            category: ['enterprise', 'fullstack']
         },
         {
             title: 'Modern Developer Portfolio',
@@ -198,7 +206,8 @@ function initProjectsGrid() {
             image: '🌐',
             technologies: ['JavaScript', 'CSS3', 'Responsive Design', 'Performance Optimization'],
             impact: 'Open source template',
-            status: 'GitHub Pages Deployment'
+            status: 'GitHub Pages Deployment',
+            category: ['fullstack']
         },
         {
             title: 'Task Scheduler Application',
@@ -206,7 +215,8 @@ function initProjectsGrid() {
             image: '📅',
             technologies: ['NestJS', 'Angular', 'TypeScript', 'Material UI'],
             impact: 'Personal productivity tool',
-            status: 'Active Development'
+            status: 'Active Development',
+            category: ['fullstack']
         }
     ];
 
@@ -221,31 +231,105 @@ function initProjectsGrid() {
 function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card';
+    card.setAttribute('data-category', project.category.join(' '));
+    
+    // Extract company name from status for cleaner display
+    const company = project.status.includes('(') 
+        ? project.status.match(/\(([^)]+)\)/)?.[1] || ''
+        : project.status;
     
     card.innerHTML = `
-        <div class="project-image">
-            ${project.image}
+        <div class="project-header">
+            <span class="project-icon">${project.image}</span>
+            <h3 class="project-title">${project.title}</h3>
+            ${company !== project.status ? `<div class="project-company">${company}</div>` : ''}
         </div>
         <div class="project-content">
-            <h3 class="project-title">${project.title}</h3>
             <p class="project-description">${project.description}</p>
+            
             <div class="project-tech">
                 ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
-            <div class="project-impact">
-                <div class="impact-metric">
-                    <i class="fas fa-chart-line"></i>
-                    <span><strong>Impact:</strong> ${project.impact}</span>
+            
+            <div class="project-metrics">
+                <div class="metric-item">
+                    <span class="metric-value">
+                        <i class="fas fa-chart-line"></i>
+                    </span>
+                    <div class="metric-label">${project.impact}</div>
                 </div>
-                <div class="project-status">
-                    <i class="fas fa-check-circle"></i>
-                    <span><strong>Status:</strong> ${project.status}</span>
+                <div class="metric-item">
+                    <span class="metric-value">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                    <div class="metric-label">Production</div>
                 </div>
+            </div>
+            
+            <div class="project-status">
+                <i class="fas fa-rocket"></i>
+                <span>${project.status}</span>
             </div>
         </div>
     `;
     
     return card;
+}
+
+// Initialize project filtering
+function initProjectFiltering() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter projects
+            filterProjects(filter);
+        });
+    });
+}
+
+// Filter projects based on category
+function filterProjects(filter) {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        if (filter === 'all') {
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        } else {
+            const categories = card.getAttribute('data-category');
+            if (categories && categories.includes(filter)) {
+                card.style.display = 'block';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(-20px)';
+                
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        }
+    });
 }
 
 // Contact form functionality

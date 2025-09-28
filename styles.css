@@ -10,15 +10,17 @@
     --primary-color: #667eea;
     --secondary-color: #764ba2;
     --accent-color: #f093fb;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
+    --text-primary: #e2e8f0;
+    --text-secondary: #a0aec0;
     --text-muted: #718096;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f7fafc;
-    --bg-dark: #1a202c;
-    --border-color: #e2e8f0;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --text-dark: #2d3748;
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-card: #374151;
+    --bg-light: #ffffff;
+    --border-color: #4a5568;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.4);
     
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -156,15 +158,15 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(26, 32, 44, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: var(--transition);
-    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    border-bottom: 1px solid rgba(74, 85, 104, 0.5);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(26, 32, 44, 0.98);
     box-shadow: var(--shadow);
 }
 
@@ -384,9 +386,10 @@ body {
 .stat {
     text-align: center;
     padding: var(--spacing-lg);
-    background: white;
+    background: var(--bg-card);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
 
 .stat h4 {
@@ -434,7 +437,7 @@ body {
 }
 
 .skill-category {
-    background: white;
+    background: var(--bg-card);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
@@ -500,7 +503,7 @@ body {
 }
 
 .filter-btn {
-    background: white;
+    background: var(--bg-card);
     border: 2px solid var(--border-color);
     color: var(--text-secondary);
     padding: var(--spacing-md) var(--spacing-lg);
@@ -534,13 +537,14 @@ body {
 }
 
 .project-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     border-left: 4px solid var(--primary-color);
     position: relative;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
@@ -726,7 +730,7 @@ body {
 
 .timeline-content {
     flex: 1;
-    background: white;
+    background: var(--bg-card);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
@@ -814,10 +818,11 @@ body {
 }
 
 .contact-form {
-    background: white;
+    background: var(--bg-card);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
 
 .form-group {
@@ -840,6 +845,8 @@ body {
     font-family: inherit;
     font-size: var(--font-size-base);
     transition: var(--transition);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
@@ -896,12 +903,13 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: var(--bg-primary);
         width: 100%;
         text-align: center;
         transition: var(--transition);
         box-shadow: var(--shadow);
         padding: var(--spacing-lg);
+        border-top: 1px solid var(--border-color);
     }
 
     .nav-menu.active {

@@ -150,53 +150,53 @@ function initScrollAnimations() {
 function initProjectsGrid() {
     const projectsGrid = document.getElementById('projects-grid');
     
-    // Real project data based on your actual projects
+    // Featured projects based on resume experience
     const projects = [
         {
-            title: 'NCompass TV Platform',
-            description: 'A comprehensive TV platform system with multiple microservices including API, dashboard, and consumer services. Features real-time data processing, analytics, and distributed architecture.',
+            title: 'Digital Signage IoT Platform',
+            description: 'Enterprise digital signage solution deployed across hundreds of Raspberry Pi devices. Features automated deployment workflows, PM2 process control, AWS Lambda + SQS logging, and real-time fleet management with secure update delivery.',
             image: '📺',
-            technologies: ['Node.js', 'React', 'Microservices', 'API Development'],
+            technologies: ['Raspberry Pi', 'Node.js', 'AWS Lambda', 'PM2', 'IoT Fleet Management'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Scheduler App',
-            description: 'A full-stack scheduling application with modern architecture. Built with NestJS backend and Angular frontend, featuring real-time updates and comprehensive task management.',
-            image: '📅',
-            technologies: ['NestJS', 'Angular', 'TypeScript', 'Material UI'],
+            title: 'Automotive Dealer Platform',
+            description: 'Customer and dealer management platform for automotive industry. Built responsive Angular applications with enhanced UI/UX for dealership dashboards, improving workflow efficiency and user experience.',
+            image: '🚗',
+            technologies: ['Angular', 'TypeScript', 'UI/UX Design', 'Responsive Design'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Agri-Task Management',
-            description: 'An agricultural task management system built with Angular. Features include task scheduling, progress tracking, and administrative controls with modern UI components.',
-            image: '🌾',
-            technologies: ['Angular', 'TypeScript', 'NgRx', 'AdminLTE'],
+            title: 'Enterprise Database Optimization Suite',
+            description: 'Comprehensive database performance optimization across MySQL, PostgreSQL, and IBM DB2 systems. Implemented query refinement and schema redesign, achieving significant reduction in query execution times for SMB clients.',
+            image: '🗄️',
+            technologies: ['MySQL', 'PostgreSQL', 'IBM DB2', 'Query Optimization', 'Schema Design'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Heimdall Socket Server',
-            description: 'A real-time communication server built with Socket.io and Express. Provides WebSocket connections for live data streaming and real-time application features.',
-            image: '🔌',
-            technologies: ['Node.js', 'Socket.io', 'Express', 'WebSockets'],
+            title: 'Online Grading System',
+            description: 'Digital examination and grading system for nursing education. Streamlined exam evaluation process, reduced manual processing time, and improved accuracy and efficiency of test scoring through automated workflows.',
+            image: '📋',
+            technologies: ['Web Development', 'Database Design', 'Educational Technology', 'Automation'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'WebForest Project',
-            description: 'A web-based forestry management system for tracking and managing forest resources. Features include data visualization, reporting, and administrative tools.',
-            image: '🌲',
-            technologies: ['JavaScript', 'Web Development', 'Data Management', 'API Integration'],
+            title: 'Full-Stack SMB Applications',
+            description: 'Suite of full-stack applications serving small and medium business clients across various industries. Built with Laravel backend, Angular frontend, and RESTful APIs, featuring comprehensive business logic and integrations.',
+            image: '🏢',
+            technologies: ['Laravel', 'Angular', 'RESTful APIs', 'Full-Stack Development'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Mercury v1',
-            description: 'First version of a comprehensive project management and communication platform. Built with modern web technologies to streamline team collaboration and project tracking.',
+            title: 'SaaS Marketing Automation Platform',
+            description: 'Scalable systems supporting remote-first SaaS business with integrated marketing automation tools. Contributed to front-end development, server administration, and deployment reliability improvements.',
             image: '🚀',
-            technologies: ['Full-Stack', 'Project Management', 'Team Collaboration', 'Web Development'],
+            technologies: ['SaaS Architecture', 'Marketing Automation', 'Server Administration', 'Scalable Systems'],
             liveUrl: '#',
             githubUrl: '#'
         }

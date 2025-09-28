@@ -150,53 +150,53 @@ function initScrollAnimations() {
 function initProjectsGrid() {
     const projectsGrid = document.getElementById('projects-grid');
     
-    // Sample project data - you can replace this with real project data
+    // Real project data based on your actual projects
     const projects = [
         {
-            title: 'E-Commerce Platform',
-            description: 'A full-featured e-commerce platform built with modern web technologies. Features include user authentication, payment integration, inventory management, and responsive design.',
-            image: '🛒',
-            technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
+            title: 'NCompass TV Platform',
+            description: 'A comprehensive TV platform system with multiple microservices including API, dashboard, and consumer services. Features real-time data processing, analytics, and distributed architecture.',
+            image: '📺',
+            technologies: ['Node.js', 'React', 'Microservices', 'API Development'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Task Management App',
-            description: 'A collaborative task management application with real-time updates. Users can create projects, assign tasks, set deadlines, and track progress.',
-            image: '📋',
-            technologies: ['Vue.js', 'Express.js', 'PostgreSQL', 'Socket.io'],
+            title: 'Scheduler App',
+            description: 'A full-stack scheduling application with modern architecture. Built with NestJS backend and Angular frontend, featuring real-time updates and comprehensive task management.',
+            image: '📅',
+            technologies: ['NestJS', 'Angular', 'TypeScript', 'Material UI'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Weather Dashboard',
-            description: 'A responsive weather application that provides current conditions and forecasts. Features location-based weather, interactive maps, and data visualization.',
-            image: '🌤️',
-            technologies: ['JavaScript', 'Weather API', 'Chart.js', 'CSS Grid'],
+            title: 'Agri-Task Management',
+            description: 'An agricultural task management system built with Angular. Features include task scheduling, progress tracking, and administrative controls with modern UI components.',
+            image: '🌾',
+            technologies: ['Angular', 'TypeScript', 'NgRx', 'AdminLTE'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Blog CMS',
-            description: 'A content management system for bloggers with a clean admin interface. Features include rich text editing, media management, and SEO optimization.',
-            image: '📝',
-            technologies: ['PHP', 'MySQL', 'Bootstrap', 'CKEditor'],
+            title: 'Heimdall Socket Server',
+            description: 'A real-time communication server built with Socket.io and Express. Provides WebSocket connections for live data streaming and real-time application features.',
+            image: '🔌',
+            technologies: ['Node.js', 'Socket.io', 'Express', 'WebSockets'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Portfolio Tracker',
-            description: 'An investment portfolio tracking application with real-time stock prices. Users can track their investments, view performance metrics, and set alerts.',
-            image: '📈',
-            technologies: ['Python', 'Django', 'SQLite', 'Alpha Vantage API'],
+            title: 'WebForest Project',
+            description: 'A web-based forestry management system for tracking and managing forest resources. Features include data visualization, reporting, and administrative tools.',
+            image: '🌲',
+            technologies: ['JavaScript', 'Web Development', 'Data Management', 'API Integration'],
             liveUrl: '#',
             githubUrl: '#'
         },
         {
-            title: 'Chat Application',
-            description: 'A real-time chat application with multiple rooms and private messaging. Features include file sharing, emoji support, and user presence indicators.',
-            image: '💬',
-            technologies: ['React', 'Socket.io', 'Firebase', 'Material-UI'],
+            title: 'Mercury v1',
+            description: 'First version of a comprehensive project management and communication platform. Built with modern web technologies to streamline team collaboration and project tracking.',
+            image: '🚀',
+            technologies: ['Full-Stack', 'Project Management', 'Team Collaboration', 'Web Development'],
             liveUrl: '#',
             githubUrl: '#'
         }

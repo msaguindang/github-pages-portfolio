@@ -81,10 +81,10 @@ function updateActiveNavLink() {
 function initTypingAnimation() {
     const typingElement = document.getElementById('typing-text');
     const texts = [
-        'Full-Stack Developer',
-        'Problem Solver',
-        'Tech Enthusiast',
-        'Code Craftsman'
+        'Full-Stack Software Engineer',
+        'DevOps Specialist', 
+        'IoT Solutions Architect',
+        'Database Optimization Expert'
     ];
     
     let textIndex = 0;

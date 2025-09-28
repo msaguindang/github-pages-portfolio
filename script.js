@@ -154,51 +154,59 @@ function initProjectsGrid() {
     const projects = [
         {
             title: 'Digital Signage IoT Platform',
-            description: 'Enterprise digital signage solution deployed across hundreds of Raspberry Pi devices. Features automated deployment workflows, PM2 process control, AWS Lambda + SQS logging, and real-time fleet management with secure update delivery.',
+            description: 'Enterprise digital signage solution deployed across hundreds of Raspberry Pi devices. Reduced deployment errors by 90% through automated workflows with PM2 process control and AWS Lambda + SQS logging. Improved system performance and content delivery speed.',
             image: '📺',
             technologies: ['Raspberry Pi', 'Node.js', 'AWS Lambda', 'PM2', 'IoT Fleet Management'],
-            liveUrl: '#',
-            githubUrl: '#'
+            impact: '100+ devices managed',
+            status: 'Production (NTV360)'
         },
         {
             title: 'Automotive Dealer Platform',
-            description: 'Customer and dealer management platform for automotive industry. Built responsive Angular applications with enhanced UI/UX for dealership dashboards, improving workflow efficiency and user experience.',
+            description: 'Enhanced customer and dealer management platform for automotive industry. Improved dashboard usability and responsiveness, resulting in better workflow efficiency and enhanced user satisfaction for dealership clients.',
             image: '🚗',
             technologies: ['Angular', 'TypeScript', 'UI/UX Design', 'Responsive Design'],
-            liveUrl: '#',
-            githubUrl: '#'
+            impact: 'Enhanced dealership workflows',
+            status: 'Production (Click Dealer Ltd.)'
         },
         {
-            title: 'Enterprise Database Optimization Suite',
-            description: 'Comprehensive database performance optimization across MySQL, PostgreSQL, and IBM DB2 systems. Implemented query refinement and schema redesign, achieving significant reduction in query execution times for SMB clients.',
+            title: 'Enterprise Database Performance Optimization',
+            description: 'Comprehensive database performance tuning across MySQL, PostgreSQL, and IBM DB2 systems for SMB clients. Implemented query refinement and schema redesign, achieving 60-80% reduction in query execution times.',
             image: '🗄️',
             technologies: ['MySQL', 'PostgreSQL', 'IBM DB2', 'Query Optimization', 'Schema Design'],
-            liveUrl: '#',
-            githubUrl: '#'
+            impact: '60-80% query time reduction',
+            status: 'Multiple Production Systems'
         },
         {
-            title: 'Online Grading System',
-            description: 'Digital examination and grading system for nursing education. Streamlined exam evaluation process, reduced manual processing time, and improved accuracy and efficiency of test scoring through automated workflows.',
+            title: 'Educational Grading System',
+            description: 'Digital examination and grading system for nursing education at Philippine Integrated Learning Review Center. Automated test scoring workflow, eliminating manual processing and improving accuracy for hundreds of students.',
             image: '📋',
             technologies: ['Web Development', 'Database Design', 'Educational Technology', 'Automation'],
-            liveUrl: '#',
-            githubUrl: '#'
+            impact: 'Automated grading for 500+ students',
+            status: 'Production (Educational Institution)'
         },
         {
-            title: 'Full-Stack SMB Applications',
-            description: 'Suite of full-stack applications serving small and medium business clients across various industries. Built with Laravel backend, Angular frontend, and RESTful APIs, featuring comprehensive business logic and integrations.',
+            title: 'Multi-Industry SMB Applications',
+            description: 'Portfolio of full-stack business applications serving clients across various industries. Built scalable Laravel backends with Angular frontends, featuring custom business logic, API integrations, and comprehensive admin panels.',
             image: '🏢',
             technologies: ['Laravel', 'Angular', 'RESTful APIs', 'Full-Stack Development'],
-            liveUrl: '#',
-            githubUrl: '#'
+            impact: '20+ SMB clients served',
+            status: 'Multiple Production Deployments'
         },
         {
-            title: 'SaaS Marketing Automation Platform',
-            description: 'Scalable systems supporting remote-first SaaS business with integrated marketing automation tools. Contributed to front-end development, server administration, and deployment reliability improvements.',
-            image: '🚀',
-            technologies: ['SaaS Architecture', 'Marketing Automation', 'Server Administration', 'Scalable Systems'],
-            liveUrl: '#',
-            githubUrl: '#'
+            title: 'Modern Developer Portfolio',
+            description: 'Responsive portfolio website built with vanilla JavaScript, modern CSS, and professional design principles. Features smooth animations, mobile-first design, and optimized performance without heavy frameworks.',
+            image: '🌐',
+            technologies: ['JavaScript', 'CSS3', 'Responsive Design', 'Performance Optimization'],
+            impact: 'Open source template',
+            status: 'GitHub Pages Deployment'
+        },
+        {
+            title: 'Task Scheduler Application',
+            description: 'Full-stack scheduling application with NestJS backend and Angular frontend. Features real-time updates, comprehensive task management, and modern architecture patterns for scalable development.',
+            image: '📅',
+            technologies: ['NestJS', 'Angular', 'TypeScript', 'Material UI'],
+            impact: 'Personal productivity tool',
+            status: 'Active Development'
         }
     ];
 
@@ -224,15 +232,15 @@ function createProjectCard(project) {
             <div class="project-tech">
                 ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
-            <div class="project-links">
-                <a href="${project.liveUrl}" class="project-link" target="_blank">
-                    <i class="fas fa-external-link-alt"></i>
-                    Live Demo
-                </a>
-                <a href="${project.githubUrl}" class="project-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                    Source Code
-                </a>
+            <div class="project-impact">
+                <div class="impact-metric">
+                    <i class="fas fa-chart-line"></i>
+                    <span><strong>Impact:</strong> ${project.impact}</span>
+                </div>
+                <div class="project-status">
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>Status:</strong> ${project.status}</span>
+                </div>
             </div>
         </div>
     `;

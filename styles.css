@@ -571,6 +571,33 @@ body {
     color: var(--secondary-color);
 }
 
+.project-impact {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.impact-metric,
+.project-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.impact-metric i,
+.project-status i {
+    color: var(--primary-color);
+    width: 16px;
+}
+
+.impact-metric:last-child,
+.project-status:last-child {
+    margin-bottom: 0;
+}
+
 .projects-cta {
     text-align: center;
 }

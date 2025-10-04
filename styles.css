@@ -498,6 +498,381 @@ body {
     margin-right: var(--spacing-sm);
 }
 
+/* Technical Achievements Section */
+.achievements {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.achievement-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-lg);
+    font-size: var(--font-size-xl);
+    color: white;
+}
+
+.achievement-card h3 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.achievement-metric {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.achievement-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+}
+
+.achievement-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.achievement-tech span {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+/* Code Examples Section */
+.code-examples {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+}
+
+.code-examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+    align-items: start;
+}
+
+.code-example-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 500px;
+}
+
+.code-example-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.code-header {
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.code-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    color: white;
+    flex-shrink: 0;
+}
+
+.code-header h3 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.code-category {
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.code-content {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-content pre {
+    margin: 0;
+    padding: var(--spacing-lg);
+    background: #1a1a1a;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    border: none;
+    flex-grow: 1;
+    white-space: pre;
+    word-wrap: normal;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.code-content code {
+    color: #d4d4d4;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+    display: block;
+    white-space: pre;
+}
+
+/* Enhanced Syntax highlighting for different languages */
+/* SQL Syntax */
+.language-sql .token.keyword,
+.language-sql .token.operator {
+    color: #569cd6;
+    font-weight: 600;
+}
+
+.language-sql .token.string {
+    color: #ce9178;
+}
+
+.language-sql .token.comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.language-sql .token.number {
+    color: #b5cea8;
+}
+
+/* JavaScript Syntax */
+.language-javascript .token.keyword,
+.language-javascript .token.class-name {
+    color: #569cd6;
+    font-weight: 600;
+}
+
+.language-javascript .token.string {
+    color: #ce9178;
+}
+
+.language-javascript .token.comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.language-javascript .token.function {
+    color: #dcdcaa;
+}
+
+.language-javascript .token.property {
+    color: #9cdcfe;
+}
+
+/* C# Syntax */
+.language-csharp .token.keyword,
+.language-csharp .token.class-name {
+    color: #569cd6;
+    font-weight: 600;
+}
+
+.language-csharp .token.string {
+    color: #ce9178;
+}
+
+.language-csharp .token.comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.language-csharp .token.function,
+.language-csharp .token.method {
+    color: #dcdcaa;
+}
+
+.language-csharp .token.property {
+    color: #9cdcfe;
+}
+
+/* Bash Syntax */
+.language-bash .token.function,
+.language-bash .token.builtin {
+    color: #dcdcaa;
+}
+
+.language-bash .token.string {
+    color: #ce9178;
+}
+
+.language-bash .token.comment {
+    color: #6a9955;
+    font-style: italic;
+}
+
+.language-bash .token.variable {
+    color: #9cdcfe;
+}
+
+.code-result {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.code-result .metric {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+.code-result .description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.code-examples-note {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-lg);
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.code-examples-note p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-style: italic;
+}
+
+.code-examples-note i {
+    color: var(--primary-color);
+    margin-right: var(--spacing-sm);
+}
+
+/* Responsive adjustments for code examples */
+@media (max-width: 768px) {
+    .code-examples-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .code-example-card {
+        min-height: 400px;
+    }
+    
+    .code-content pre {
+        font-size: 12px;
+        padding: var(--spacing-md);
+        max-height: 300px;
+    }
+    
+    .code-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    
+    .code-result {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .code-examples-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .code-example-card {
+        min-height: 350px;
+    }
+    
+    .code-content pre {
+        font-size: 11px;
+        padding: var(--spacing-sm);
+        max-height: 250px;
+    }
+}
+
 /* Projects Section */
 .projects {
     padding: var(--spacing-3xl) 0;

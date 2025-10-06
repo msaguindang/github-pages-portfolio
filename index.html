@@ -54,6 +54,9 @@
                     <a href="#projects" class="nav-link">Projects</a>
                 </li>
                 <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
                     <a href="#experience" class="nav-link">Experience</a>
                 </li>
                 <li class="nav-item">
@@ -557,6 +560,9 @@ fi</code></pre>
                 <button class="filter-btn" data-filter="fullstack">
                     <i class="fas fa-layer-group"></i> Full-Stack
                 </button>
+                <button class="filter-btn" data-filter="private">
+                    <i class="fas fa-user-secret"></i> Private Work
+                </button>
             </div>
             
             <div class="projects-grid" id="projects-grid">
@@ -568,6 +574,42 @@ fi</code></pre>
                     <i class="fab fa-github"></i>
                     View More on GitHub
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section id="gallery" class="project-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Screenshots from real systems I've worked on</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-category="all">
+                    <i class="fas fa-th"></i> All
+                </button>
+                <button class="gallery-filter-btn" data-category="dashboards">
+                    <i class="fas fa-chart-dashboard"></i> Dashboards
+                </button>
+                <button class="gallery-filter-btn" data-category="mobile">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </button>
+                <button class="gallery-filter-btn" data-category="aws">
+                    <i class="fab fa-aws"></i> AWS
+                </button>
+                <button class="gallery-filter-btn" data-category="iot">
+                    <i class="fas fa-microchip"></i> IoT Systems
+                </button>
+                <button class="gallery-filter-btn" data-category="data">
+                    <i class="fas fa-database"></i> Data Systems
+                </button>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Screenshots will be populated by JavaScript -->
             </div>
         </div>
     </section>
@@ -743,6 +785,43 @@ fi</code></pre>
             </div>
         </div>
     </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <div class="lightbox-header">
+                <h3 id="lightbox-title">Screenshot</h3>
+                <p id="lightbox-description"></p>
+            </div>
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="">
+                <div class="lightbox-navigation">
+                    <button id="lightbox-prev" class="lightbox-nav-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="lightbox-next" class="lightbox-nav-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="lightbox-counter">
+                <span id="lightbox-current">1</span> of <span id="lightbox-total">1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div id="gallery-lightbox" class="gallery-lightbox">
+        <div class="gallery-lightbox-content">
+            <span class="gallery-lightbox-close">&times;</span>
+            <img id="gallery-lightbox-img" src="" alt="">
+            <div class="gallery-lightbox-info">
+                <h3 id="gallery-lightbox-title"></h3>
+                <p id="gallery-lightbox-description"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Prism.js for syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
